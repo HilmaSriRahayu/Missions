@@ -251,6 +251,7 @@ footer {
 .author p{
     float: right;
     margin-right: 5%;
+    margin: 1%;
 }
 
 .author img{
