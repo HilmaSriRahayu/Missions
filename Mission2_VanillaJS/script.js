@@ -1,52 +1,86 @@
-const MAX_WIDTH = window.screen.availWidth;
-const MAX_HEIGHT = window.screen.availHeight;
 
-const cloud = document.querySelector(".cloud")
+    let start = Date.now();
+    
+    let timer = setInterval(function() {
+        let timePassed = Date.now() - start;
+        
+        cloud.style.left = timePassed / 12 + 'px';
+        
+        
+        if(timePassed > 6610) {
+            start = Date.now();
+            cloud.style.left = 0;
+        }
+        
+    }, 20);
+    
+window.onload = function () {
+    let start = Date.now();
 
-const cloudMaxScale = 70;
-let cloudScaleSpeed = 1;
-let cloudScale = 50;
+    let timer = setInterval(function() {
+    let timePassed = Date.now() - start;
 
-let cloudXSpeed = 0.5;
-let cloudX = 0;
-
-const cloud2 = document.querySelector(".cloud2")
-
-const cloud2MaxScale = 70;
-let cloud2ScaleSpeed = 1;
-let cloud2Scale = 50;
-
-let cloud2XSpeed = 0.5;
-let cloud2X = 0;
-
-function animate() {
-    cloudScale = cloudScale + cloudScaleSpeed/5;
-    cloudX = cloudX + cloudXSpeed;
-
-    cloud2Scale = cloud2Scale + cloud2ScaleSpeed/5;
-    cloud2X = cloud2X + cloud2XSpeed;
-
-    if (cloudScale > cloudMaxScale || cloudScale < 50) {
-        cloudScaleSpeed *= -1;
+    cloud2.style.left = '-'+timePassed / 12 + 'px';
+    
+    if(timePassed > 6610) {
+        start = Date.now();
+        cloud2.style.left = 0;
     }
 
-    if (cloudX > MAX_WIDTH + cloud.offsetWidth || cloud2X < 0) {
-        cloudXSpeed *= +1;
-    }
+    }, 20);
+    
+  }
 
-    if (cloud2Scale > cloud2MaxScale || cloud2Scale < 50) {
-        cloud2ScaleSpeed *= -1;
-    }
+  
+// const MAX_WIDTH = window.screen.availWidth;
+// const MAX_HEIGHT = window.screen.availHeight;
 
-    if (cloud2X > MAX_WIDTH + cloud2.offsetWidth || cloud2X < 0) {
-        cloud2XSpeed *= -1;
-    }
+// const cloud = document.querySelector(".cloud")
 
-    cloud.style.left = cloudX + 'px';
-    cloud.style.scale = cloudScale + '%';
-    cloud2.style.left = cloud2X + 'px';
-    cloud2.style.scale = cloud2Scale + '%';
-    window.requestAnimationFrame(animate);
-}
+// const cloudMaxScale = 70;
+// let cloudScaleSpeed = 1;
+// let cloudScale = 50;
 
-window.requestAnimationFrame(animate);
+// let cloudXSpeed = 0.5;
+// let cloudX = 0;
+
+// const cloud2 = document.querySelector(".cloud2")
+
+// const cloud2MaxScale = 70;
+// let cloud2ScaleSpeed = 1;
+// let cloud2Scale = 50;
+
+// let cloud2XSpeed = 0.5;
+// let cloud2X = 0;
+
+
+// function animate() {
+//     cloudScale = cloudScale + cloudScaleSpeed/5;
+//     cloudX = cloudX + cloudXSpeed;
+
+//     cloud2Scale = cloud2Scale + cloud2ScaleSpeed/5;
+//     cloud2X = cloud2X + cloud2XSpeed;
+
+//     if (cloudScale > cloudMaxScale || cloudScale < 50) {
+//         cloudScaleSpeed *= -1;
+//     }
+
+//     if (cloudX > MAX_WIDTH + cloud.offsetWidth || cloud2X < 0) {
+//         cloudXSpeed *= +1;
+//     }
+
+//     if (cloud2Scale > cloud2MaxScale || cloud2Scale < 50) {
+//         cloud2ScaleSpeed *= -1;
+//     }
+
+//     if (cloud2X > MAX_WIDTH + cloud2.offsetWidth || cloud2X < 0) {
+//         cloud2XSpeed *= -1;
+//     }
+//     cloud.style.left = cloudX + 'px';
+//     cloud.style.scale = cloudScale + '%';
+//     cloud2.style.left = cloud2X + 'px';
+//     cloud2.style.scale = cloud2Scale + '%';
+//     window.requestAnimationFrame(animate);
+// }
+
+// window.requestAnimationFrame(animate);
